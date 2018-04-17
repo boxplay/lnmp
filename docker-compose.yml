@@ -1,0 +1,12 @@
+php:
+    build: ./php7.0
+    volumes:
+      - ./:/var/www/html/
+app:
+    build: ./nginx
+    ports:
+      - "8888:80"
+    links:
+        - php
+    volumes:
+      - ./:/var/www/html/
